@@ -13,6 +13,8 @@ def read_input():
         with open('tests/06', 'r') as f:
             pat = f.readline().strip()
             text = f.readline().strip()
+    else:
+        print('choice is not I or F')
     return pat, text
 
 def get_occurrences(pat, text):
