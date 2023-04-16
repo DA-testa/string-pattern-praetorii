@@ -6,7 +6,7 @@ def read_input():
         pat = input()
         text = input()
     elif choice == 'F':
-        with open('06', 'r') as f:
+        with open('tests/06', 'r') as f:
             pat = f.readline().strip()
             text = f.readline().strip()
     return pat, text
@@ -47,5 +47,5 @@ def main():
     print_occurrences(output)
 
 if __name__ == '__main__':
-    print_occurrences(get_occurrences(*read_input()))
+    main()
 
