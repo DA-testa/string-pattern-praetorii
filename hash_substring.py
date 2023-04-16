@@ -4,6 +4,7 @@ def read_input():
     choice = input()
     print(f'choice: {choice}')
     if choice == 'I':
+        print('choice is I')
         pat = input()
         text = input()
         print(f'pat: {pat}')
