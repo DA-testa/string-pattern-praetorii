@@ -1,32 +1,51 @@
 # python3
 
 def read_input():
-    # this function needs to aquire input both from keyboard and file
-    # as before, use capital i (input from keyboard) and capital f (input from file) to choose which input type will follow
-    
-    
-    # after input type choice
-    # read two lines 
-    # first line is pattern 
-    # second line is text in which to look for pattern 
-    
-    # return both lines in one return
-    
-    # this is the sample return, notice the rstrip function
-    return (input().rstrip(), input().rstrip())
+    choice = input()
+    if choice == 'I':
+        pat = input()
+        text = input()
+    elif choice == 'F':
+        with open('06', 'r') as f:
+            pat = f.readline().strip()
+            text = f.readline().strip()
+    return pat, text
+
+def get_occurrences(pat, text):
+    d = 256
+    q = 101
+    m = len(pat)
+    n = len(text)
+    h = pow(d, m - 1) % q
+    p = 0
+    t = 0
+    result = []
+    for i in range(m):
+        p = (d * p + ord(pat[i])) % q
+        t = (d * t + ord(text[i])) % q
+    for i in range(n - m + 1):
+        if p == t:
+            match = True
+            for j in range(m):
+                if pat[j] != text[i + j]:
+                    match = False
+                    break
+            if match:
+                result.append(i)
+        if i < n - m:
+            t = (d * (t - ord(text[i]) * h) + ord(text[i + m])) % q
+            if t < 0:
+                t += q
+    return result
 
 def print_occurrences(output):
-    # this function should control output, it doesn't need any return
     print(' '.join(map(str, output)))
 
-def get_occurrences(pattern, text):
-    # this function should find the occurances using Rabin Karp alghoritm 
+def main():
+    pat, text = read_input()
+    output = get_occurrences(pat, text)
+    print_occurrences(output)
 
-    # and return an iterable variable
-    return [0]
-
-
-# this part launches the functions
 if __name__ == '__main__':
     print_occurrences(get_occurrences(*read_input()))
 
