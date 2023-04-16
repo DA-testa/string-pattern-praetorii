@@ -2,19 +2,13 @@
 
 def read_input():
     choice = input()
-    print(f'choice: {choice}')
     if choice == 'I':
-        print('choice is I')
         pat = input()
         text = input()
-        print(f'pat: {pat}')
-        print(f'text: {text}')
     elif choice == 'F':
         with open('tests/06', 'r') as f:
             pat = f.readline().strip()
             text = f.readline().strip()
-    else:
-        print('choice is not I or F')
     return pat, text
 
 def get_occurrences(pat, text):
