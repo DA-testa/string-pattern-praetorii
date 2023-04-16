@@ -1,8 +1,8 @@
 # python3
 
-pat=1
 def read_input():
     choice = input()
+    print(f'choice: {choice}')
     if choice == 'I':
         pat = input()
         text = input()
