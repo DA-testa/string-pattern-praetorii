@@ -47,5 +47,4 @@ def main():
     print_occurrences(output)
 
 if __name__ == '__main__':
-    main()
-
+    print_occurrences(get_occurrences(*read_input()))
