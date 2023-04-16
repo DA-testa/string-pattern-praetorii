@@ -6,6 +6,8 @@ def read_input():
     if choice == 'I':
         pat = input()
         text = input()
+        print(f'pat: {pat}')
+        print(f'text: {text}')
     elif choice == 'F':
         with open('tests/06', 'r') as f:
             pat = f.readline().strip()
