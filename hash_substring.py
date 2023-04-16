@@ -1,5 +1,6 @@
 # python3
 
+pat=1
 def read_input():
     choice = input()
     if choice == 'I':
